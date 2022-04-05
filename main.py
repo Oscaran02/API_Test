@@ -10,17 +10,18 @@ class RecObj(Resource):
         return vector
 
     def post(self):
-        print (request.json)
         vector.append(int(request.json["num"]))
         return f"El número adjuntado fue: {request.json['num']}"
 
 
 class RecObjEsp(Resource):
-    def get(self, numero):
-        pass
+    def get(self, id):
+        return vector[id]
 
-    def post(self):
-        pass
+    def put(self, id):
+        value = int(request.json["value"])
+        vector[id] = value
+        return f"El número cambiado fue: {request.json['value']} en la posición {id}"
 
 
 api.add_resource(RecObj, '/test')
