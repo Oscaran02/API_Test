@@ -5,6 +5,8 @@ app = Flask(__name__)
 api = Api(app)
 
 vector = [1, 2, 3, 4, 5]
+
+
 class RecObj(Resource):
     def get(self):
         return vector
